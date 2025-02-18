@@ -1,0 +1,17 @@
+virtualization-platform/
+├── api/
+│   └── proto/
+├── cmd/
+│   ├── instance-service/
+│   ├── node-service/
+│   ├── scheduler-service/
+│   └── api-gateway/
+├── internal/
+│   ├── instance/
+│   ├── node/
+│   ├── scheduler/
+│   └── common/
+├── pkg/
+│   ├── docker/
+│   └── libvirt/
+└── go.mod 

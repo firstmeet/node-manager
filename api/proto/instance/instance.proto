@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package instance;
+
+option go_package = "virtualization-platform/api/proto/instance";
+
+service InstanceService {
+    rpc CreateInstance(CreateInstanceRequest) returns (CreateInstanceResponse) {}
+    rpc DeleteInstance(DeleteInstanceRequest) returns (DeleteInstanceResponse) {}
+    rpc ListInstances(ListInstancesRequest) returns (ListInstancesResponse) {}
+    rpc GetInstanceStatus(GetInstanceStatusRequest) returns (GetInstanceStatusResponse) {}
+}
+
+message Instance {
+    string id = 1;
+    string name = 2;
+    string type = 3;  // docker or libvirt
+    string status = 4;
+    string node_id = 5;
+    map<string, string> metadata = 6;
+}
+
+// 其他请求响应消息定义... 

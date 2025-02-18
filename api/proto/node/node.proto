@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package node;
+
+option go_package = "virtualization-platform/api/proto/node";
+
+service NodeService {
+    rpc RegisterNode(Node) returns (Response) {}
+    rpc GetNode(GetNodeRequest) returns (Node) {}
+    rpc ListNodes(ListNodesRequest) returns (ListNodesResponse) {}
+}
+
+message Node {
+    string id = 1;
+    string hostname = 2;
+    string ip = 3;
+    Resources resources = 4;
+    string status = 5;
+}
+
+message Resources {
+    int64 total_cpu = 1;
+    int64 used_cpu = 2;
+    int64 total_memory = 3;
+    int64 used_memory = 4;
+    int64 total_storage = 5;
+    int64 used_storage = 6;
+}
+
+message GetNodeRequest {
+    string id = 1;
+}
+
+message ListNodesRequest {}
+
+message ListNodesResponse {
+    repeated Node nodes = 1;
+}
+
+message Response {
+    bool success = 1;
+    string message = 2;
+} 
